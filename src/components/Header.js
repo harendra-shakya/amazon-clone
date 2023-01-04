@@ -6,13 +6,18 @@ export default function Header() {
     return (
         <header>
             {/* Top nav */}
-            <div className="flex items-center bg-amazon_blue p-1 flex-grow py-2">
+            <div className="flex items-center space-x-3 bg-amazon_blue p-1 flex-grow py-2">
                 <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
-                    <Image src="/amazon.png" width={150} height={150} className="cursor-pointer" />
+                    <Image
+                        src="/amazon.png"
+                        width={140}
+                        height={140}
+                        className="cursor-pointer p-1"
+                    />
                 </div>
 
                 {/* Search */}
-                <div className="hidden sm:flex items-center h-10 rounded-md focus:outline-none flex-grow  m-2 cursor-pointer bg-yellow-400 hover:bh-yellow-500">
+                <div className="hidden sm:flex items-center h-10 rounded-md focus:outline-none flex-grow  cursor-pointer bg-yellow-400 hover:bh-yellow-500">
                     <input
                         className="p-2 h-full w-6 flex-grow flex-shrink rounded-md"
                         type="text"
@@ -44,7 +49,20 @@ export default function Header() {
 
             {/* Bottom nav */}
 
-            <div></div>
+            <div className="flex items-center space-x-3 bg-amazon_blue-light text-white text-sm">
+                <p className="link flex items-center">
+                    <MenuIcon className="h-6 mr-1" />
+                </p>
+                <p className="link">Prime Videos</p>
+                <p className="link">Amazon Business</p>
+                <p className="link">Today's Deals</p>
+                <p className="link hidden lg:inline-flex">Electronics</p>
+                <p className="link hidden lg:inline-flex">Food & Grocery</p>
+                <p className="link hidden lg:inline-flex">Prime</p>
+                <p className="link hidden lg:inline-flex">Buy Again</p>
+                <p className="link hidden lg:inline-flex">Shopper Toolkit</p>
+                <p className="link hidden lg:inline-flex">Health & Personal Care</p>
+            </div>
         </header>
     );
 }
