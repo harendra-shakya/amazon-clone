@@ -10,8 +10,8 @@ export default function Header() {
                 <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
                     <Image
                         src="/amazon.png"
-                        width={140}
-                        height={140}
+                        width={105}
+                        height={105}
                         className="cursor-pointer p-1"
                     />
                 </div>
