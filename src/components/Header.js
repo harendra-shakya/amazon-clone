@@ -2,9 +2,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { MenuIcon, SearchIcon, ShoppingCartIcon } from "@heroicons/react/outline";
 import { useSession, signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
+import { useSelector } from "react-redux";
+import { selectItems } from "../slices/basketSlice";
 
 export default function Header() {
     const { data: session } = useSession();
+    const router = useRouter();
+    const items = useSelector(selectItems);
 
     console.log("session", session);
 
@@ -14,9 +19,10 @@ export default function Header() {
             <div className="flex items-center space-x-3 bg-amazon_blue p-1 flex-grow py-2">
                 <div className="mt-2 flex items-center flex-grow sm:flex-grow-0">
                     <Image
+                        onClick={() => router.push("/")}
                         src="/amazon.png"
                         width={105}
-                        height={105}
+                        height={40}
                         className="cursor-pointer p-1"
                     />
                 </div>
@@ -44,9 +50,12 @@ export default function Header() {
 
                     <div className="relative flex items-center link">
                         <span className="absolute top-0 right-0 md:right-10 h-4 w-4 bg-yellow-400 text-center rounded-full text-black font-bold">
-                            4
+                            {items.length}
                         </span>
-                        <ShoppingCartIcon className="h-10" />
+                        <ShoppingCartIcon
+                            className="h-10"
+                            onClick={() => router.push("/checkout")}
+                        />
                         <p className="hidden md:inline font-extrabold md:text-sm mt-2">Basket</p>
                     </div>
                 </div>
