@@ -7,7 +7,7 @@ export default function Order({ id, amount, items, timestamp, images }) {
             <div className="flex items-center space-x-10 p-5 bg-gray-100 text-sm text-gray-600">
                 <div>
                     <p>ORDER PLACED</p>
-                    <p>{moment.unix(timestamp).format("DD MM YYY")}</p>
+                    <p>{moment.unix(timestamp).format("DD MM YYYY")}</p>
                 </div>
 
                 <div>
