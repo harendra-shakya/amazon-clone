@@ -64,10 +64,10 @@ export default function CheckoutProduct({
             {/* Right add/remove buttons */}
             <div className="flex flex-col space-y-2 my-auto justify-self-end ">
                 <button className="button" onClick={addItemToBasket}>
-                    Add item to Basket
+                    Add to Basket
                 </button>
                 <button className="button" onClick={removeItemToBasket}>
-                    Remove item to Basket
+                    Remove to Basket
                 </button>
             </div>
         </div>

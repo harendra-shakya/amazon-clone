@@ -11,8 +11,6 @@ export default function Header() {
     const router = useRouter();
     const items = useSelector(selectItems);
 
-    console.log("session", session);
-
     return (
         <header>
             {/* Top nav */}

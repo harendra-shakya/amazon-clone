@@ -1,11 +1,16 @@
 import Header from "../components/Header";
 import Image from "next/image";
 import { useSelector } from "react-redux";
-import { selectItems } from "../slices/basketSlice";
+import { selectItems, selectTotal } from "../slices/basketSlice";
 import CheckoutProduct from "../components/CheckoutProduct";
+import Currency from "react-currency-formatter";
+import { useSession } from "next-auth/react";
 
-export default function Checkout({ products }) {
+export default function Checkout() {
     const items = useSelector(selectItems);
+    const total = useSelector(selectTotal);
+
+    const { data: session } = useSession();
 
     return (
         <div className="bg-gray-100">
@@ -17,7 +22,7 @@ export default function Checkout({ products }) {
                         <Image
                             className="object-contain"
                             src="/images/banner/Prime-day-banner.png"
-                            width={1020}
+                            width={1200}
                             height={250}
                         />
                     </div>
@@ -43,7 +48,28 @@ export default function Checkout({ products }) {
                 </div>
 
                 {/* Right */}
-                <div></div>
+                <div className="flex flex-col  m-5 bg-white p-10 shadow-md">
+                    {items.length > 0 && (
+                        <>
+                            <h2 className="whitespace-nowrap">
+                                Subtotal ({items.length} items):{" "}
+                                <span className="font-bold">
+                                    <Currency quantity={total} currency="INR" />
+                                </span>
+                            </h2>
+
+                            <button
+                                disabled={!session}
+                                className={`button mt-2 ${
+                                    !session &&
+                                    `from-gray-200 to-gray-500 border-gray-200 text-gray-300`
+                                }`}
+                            >
+                                {!session ? "Sign in to checkout" : "Proceed to checkout"}
+                            </button>
+                        </>
+                    )}
+                </div>
             </main>
         </div>
     );
