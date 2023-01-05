@@ -43,7 +43,12 @@ export default function Header() {
 
                     <div className="link">
                         <p className="">Returns</p>
-                        <p className="font-extrabold md:text-sm">& Orders</p>
+                        <p
+                            onClick={() => router.push("./orders")}
+                            className="font-extrabold md:text-sm"
+                        >
+                            & Orders
+                        </p>
                     </div>
 
                     <div className="relative flex items-center link">
