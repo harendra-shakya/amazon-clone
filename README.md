@@ -1,6 +1,8 @@
-Building amazon clone under 24 hours.
+ I took a challenge to build an Amazon clone in under 24 hours or I would delete my social media accounts if I took more than that.
 
-## Bulding this using
+It was a harder and bigger project than I anticipated. But I pulled it off somehow. [Demo](https://www.linkedin.com/posts/harendra-shakya_web2-callenge-blockhain-activity-7016782385249746944-G4sj?utm_source=share&utm_medium=member_desktop)
+
+## Built this using
 
 1. Nextjs (SSR)
 1. Redux
